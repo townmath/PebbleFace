@@ -1,0 +1,51 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        "health"
+    ],
+    "companyName": "jim_town@alumni.usc.edu",
+    "enableMultiJS": false,
+    "longName": "runningFace",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/mega4.png",
+                "name": "megamanRun2",
+                "targetPlatforms": null,
+                "type": "png"
+            },
+            {
+                "file": "images/mega3.png",
+                "name": "megamanMidRun",
+                "targetPlatforms": null,
+                "type": "png"
+            },
+            {
+                "file": "images/mega2.png",
+                "name": "megamanRun1",
+                "targetPlatforms": null,
+                "type": "png"
+            },
+            {
+                "file": "images/mega1.png",
+                "menuIcon": true,
+                "name": "megamanStand",
+                "targetPlatforms": null,
+                "type": "png"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "runningFace",
+    "targetPlatforms": [
+        "aplite",
+        "basalt",
+        "chalk"
+    ],
+    "uuid": "1b775e96-98c9-4e99-a100-90b82466a77e",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
