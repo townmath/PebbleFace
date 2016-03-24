@@ -81,7 +81,7 @@ static void main_window_load(Window *window) {
   //shrink bitmap?
   //gbitmap_set_bounds(megaman_bitmap, grect_inset(GRect(0,0,200,200),GEdgeInsets(0,0,0,0)));
   // Create BitmapLayer to display the GBitmap
-  bitmap_layer = bitmap_layer_create(GRect(48,70,50,50));
+  bitmap_layer = bitmap_layer_create(GRect(48,60,50,50));
 
   // Set the bitmap onto the layer and add to the window
   bitmap_layer_set_bitmap(bitmap_layer, megaman_bitmap);
@@ -125,13 +125,15 @@ static void main_window_unload(Window *window) {
 void handle_init(void) {
   my_window = window_create();
   //window_set_background_color(my_window, GColorBlack);
-  // Set handlers to manage the elements inside the Window
+  text_layer = text_layer_create(GRect(0,0,144,20));
+  step_layer = text_layer_create(GRect(0,0,144,20));
+  
+    // Set handlers to manage the elements inside the Window
   window_set_window_handlers(my_window, (WindowHandlers) {
     .load = main_window_load,
     .unload = main_window_unload
   });
-  text_layer = text_layer_create(GRect(0, 0, 144, 20));
-  step_layer = text_layer_create(GRect(0,0,144,20));
+  
   // Show the Window on the watch, with animated=true
   window_stack_push(my_window, true);
   // Register with TickTimerService
@@ -142,8 +144,10 @@ void handle_init(void) {
 }
 
 void handle_deinit(void) {
-  text_layer_destroy(text_layer);
-  text_layer_destroy(step_layer);
+  //text_layer_destroy(text_layer);
+  //text_layer_destroy(step_layer);
+  //gbitmap_destroy(megaman_bitmap);
+  //bitmap_layer_destroy(bitmap_layer);
   window_destroy(my_window);
 }
 
