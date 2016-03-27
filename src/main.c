@@ -21,12 +21,12 @@ static void update_time() {
   text_layer_set_text(text_layer, s_buffer);
 }
 
-static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
-  update_time();
-}
+//static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
+//  update_time();
+//}
 
 static void update_megaman(){
-  //gbitmap_destroy(megaman_bitmap);
+  gbitmap_destroy(megaman_bitmap);
   bitmap_layer_destroy(bitmap_layer);
   bitmap_layer = bitmap_layer_create(GRect(48,60,50,50));
   layer_add_child(window_get_root_layer(my_window), bitmap_layer_get_layer(bitmap_layer)); 
@@ -69,6 +69,7 @@ static void update_megaman(){
 
 static void megamanRun(struct tm *tick_time, TimeUnits units_chanaged) {
   update_megaman();
+  update_time();
 }
 
 static void main_window_load(Window *window) {
@@ -137,10 +138,10 @@ void handle_init(void) {
   // Show the Window on the watch, with animated=true
   window_stack_push(my_window, true);
   // Register with TickTimerService
-  tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
+//  tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
   tick_timer_service_subscribe(SECOND_UNIT, megamanRun);
   // Make sure the time is displayed from the start
-  update_time();
+  update_time(); 
 }
 
 void handle_deinit(void) {
